@@ -1,0 +1,75 @@
+===== DATE =====
+Sat Sep 12 02:57:30 PM UTC 2026
+
+===== HOSTNAME =====
+ Static hostname: exasol-lab
+       Icon name: computer-vm
+         Chassis: vm 🖴
+      Machine ID: 7697ced8a34f4e1290b0ed405d5f7f14
+         Boot ID: 9ff84d94a70e4980830e89c06d3930b0
+  Virtualization: vmware
+Operating System: Ubuntu 24.04.4 LTS
+          Kernel: Linux 6.8.0-100-generic
+    Architecture: x86-64
+ Hardware Vendor: VMware, Inc.
+  Hardware Model: VMware Virtual Platform
+Firmware Version: 6.00
+   Firmware Date: Mon 2025-03-24
+    Firmware Age: 1y 5month 2w 6d
+
+===== OS =====
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+
+===== KERNEL =====
+Linux exasol-lab 6.8.0-100-generic #100-Ubuntu SMP PREEMPT_DYNAMIC Tue Jan 13 16:40:06 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+
+===== CPU =====
+Architecture:                            x86_64
+CPU(s):                                  4
+On-line CPU(s) list:                     0-3
+Model name:                              13th Gen Intel(R) Core(TM) i3-1305U
+NUMA node0 CPU(s):                       0-3
+
+===== MEMORY =====
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       574Mi        10Gi       1.5Mi       701Mi        11Gi
+Swap:          4.0Gi          0B       4.0Gi
+
+===== DISK =====
+NAME                       SIZE TYPE FSTYPE      MOUNTPOINTS
+sda                        100G disk             
+├─sda1                       1M part             
+├─sda2                       2G part ext4        /boot
+└─sda3                      98G part LVM2_member 
+  └─ubuntu--vg-ubuntu--lv   49G lvm  ext4        /
+sr0                        3.2G rom  iso9660     
+
+===== FILESYSTEM =====
+Filesystem                        Type   Size  Used Avail Use% Mounted on
+tmpfs                             tmpfs  1.2G  1.6M  1.2G   1% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv ext4    48G  6.6G   39G  15% /
+tmpfs                             tmpfs  5.9G     0  5.9G   0% /dev/shm
+tmpfs                             tmpfs  5.0M     0  5.0M   0% /run/lock
+/dev/sda2                         ext4   2.0G  102M  1.7G   6% /boot
+tmpfs                             tmpfs  1.2G   12K  1.2G   1% /run/user/1000
+
+===== NETWORK =====
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+ens33            UP             192.168.85.132/24 metric 100 fe80::20c:29ff:febb:8a56/64 
+
+===== ROUTES =====
+default via 192.168.85.2 dev ens33 proto dhcp src 192.168.85.132 metric 100 
+192.168.85.0/24 dev ens33 proto kernel scope link src 192.168.85.132 metric 100 
+192.168.85.2 dev ens33 proto dhcp scope link src 192.168.85.132 metric 100 

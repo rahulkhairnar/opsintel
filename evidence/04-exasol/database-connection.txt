@@ -1,0 +1,6 @@
+===== EXASOL CONNECTION TEST =====
+Sat Sep 12 05:40:23 PM UTC 2026
+
+Exasol connection: SUCCESS
+TLS fingerprint verification: SUCCESS
+SELECT 1 result: [(1,)]

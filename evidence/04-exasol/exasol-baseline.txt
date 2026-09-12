@@ -1,0 +1,35 @@
+===== DATE =====
+Sat Sep 12 05:39:29 PM UTC 2026
+
+===== EXASOL KIT STATUS =====
+Kit level:  1
+Runtime:    nano
+Status:     running
+Steps done: ["runtime", "exapump", "mcp", "pyexasol", "exakit_helper"]
+Manifest:   /home/rahul/.exasol-starter-kit/manifest.json
+
+===== EXASOL CONNECTION INFO =====
+
+  +- Connection details --------------------------------------------------------+
+  | Runtime:      nano                                                          |
+  | DSN:          127.0.0.1:8563                                                |
+  | Admin user:   sys                                                           |
+  | Admin pass:   stored in ~/.exasol-starter-kit/credentials/nano_sys_password |
+  | TLS:          enabled (self-signed certificate)                             |
+  | exapump:      ~/.local/bin/exapump (profile: starter-kit)                   |
+  | Manifest:     ~/.exasol-starter-kit/manifest.json                           |
+  | Logs:         ~/.exasol-starter-kit/logs                                    |
+  | SQL client:   DBeaver (recommended)                                         |
+  | How to connect: exakit guide                                                |
+  +-----------------------------------------------------------------------------+
+
+
+===== EXAPUMP VERSION =====
+exapump 0.12.0
+
+===== PYEXASOL VERSION =====
+2.4.0
+
+===== EXASOL DOCKER CONTAINER =====
+CONTAINER ID   IMAGE                               COMMAND                  CREATED          STATUS          PORTS                      NAMES
+c559a8c45631   exasol/nano:2026.2.0-nano.3-amd64   "/controller init sy…"   40 minutes ago   Up 40 minutes   127.0.0.1:8563->8563/tcp   exasol-nano

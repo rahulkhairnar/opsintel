@@ -103,7 +103,7 @@ SELECT
     EVENT_MESSAGE
 FROM OPSINTEL.INCIDENT_EVENTS
 WHERE SERVER_NAME = '{server_name}'
-  AND EVENT_TIME >= '{start_time}'
+  AND EVENT_TIME >= '{event_start_time}'
   AND EVENT_TIME <= '{end_time}'
 ORDER BY EVENT_TIME
 """
@@ -164,9 +164,12 @@ def investigate(
         end_time=end_time_sql,
     )
 
+    event_start_time = _validate_timestamp(
+        start_time - __import__("datetime").timedelta(seconds=30)
+    )
     events_sql = EVENTS_SQL.format(
         server_name=server_name,
-        start_time=start_time_sql,
+        event_start_time=event_start_time,
         end_time=end_time_sql,
     )
 

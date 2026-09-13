@@ -1,4 +1,3 @@
-import time
 from datetime import datetime
 
 import streamlit as st
@@ -91,16 +90,12 @@ if investigate_button:
 
     with st.spinner("Investigating incident using Exasol evidence..."):
 
-        query_start = time.perf_counter()
-
         try:
             result = investigate_and_report(
                 server_name=server_name,
                 start_time=start_datetime,
                 end_time=end_datetime,
             )
-
-            query_time = time.perf_counter() - query_start
 
         except Exception as exc:
             st.error(f"Investigation failed: {exc}")
@@ -137,10 +132,29 @@ if investigate_button:
 
     with col4:
         st.metric(
-            "Query Time",
-            f"{query_time * 1000:.1f} ms",
+            "Total Time",
+            f"{result['total_time_ms']:.1f} ms",
         )
 
+    # -------------------------
+    # Performance
+    # -------------------------
+    t1, t2, t3 = st.columns(3)
+    with t1:
+        st.metric(
+            "Exasol Time",
+            f"{result['exasol_time_ms']:.1f} ms",
+        )
+    with t2:
+        st.metric(
+            "AI Time",
+            f"{result['ai_time_ms']:.1f} ms",
+        )
+    with t3:
+        st.metric(
+            "Report Mode",
+            result["report_mode"],
+        )
     # -------------------------
     # Metrics
     # -------------------------
@@ -266,7 +280,9 @@ if investigate_button:
     st.divider()
 
     st.caption(
-        f"Investigation completed in {query_time * 1000:.1f} ms · "
+        f"Exasol: {result['exasol_time_ms']:.1f} ms · "
+        f"AI: {result['ai_time_ms']:.1f} ms · "
+        f"Total: {result['total_time_ms']:.1f} ms · "
         "Data source: Exasol Personal · "
         "OpsIntel read-only safety policy active"
     )

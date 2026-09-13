@@ -236,18 +236,23 @@ def investigate_and_report(
     end_time,
 ) -> dict[str, Any]:
     """Run Exasol investigation and generate an evidence-backed report."""
-
+    import time
+    exasol_start = time.perf_counter()
     investigation = investigate(
         server_name=server_name,
         start_time=start_time,
         end_time=end_time,
     )
-
+    exasol_time_ms = (time.perf_counter() - exasol_start) * 1000
+    ai_start = time.perf_counter()
     report, report_mode = generate_report_with_mode(investigation)
-
+    ai_time_ms = (time.perf_counter() - ai_start) * 1000
     return {
         **investigation,
         "report": report,
         "report_mode": report_mode,
+        "exasol_time_ms": exasol_time_ms,
+        "ai_time_ms": ai_time_ms,
+        "total_time_ms": exasol_time_ms + ai_time_ms,
         "prompt": build_evidence_prompt(investigation),
     }

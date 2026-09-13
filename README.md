@@ -20,7 +20,7 @@ A user can ask questions such as:
 
 The system analyzes infrastructure data stored in Exasol, identifies anomalies and correlations, and provides an evidence-based explanation.
 
-## Planned Architecture
+## Architecture
 
 Monitoring / Infrastructure Data
         |
@@ -38,7 +38,7 @@ Web Interface / Investigation Report
 
 ## Current Status
 
-Project initialization.
+Working MVP completed: Exasol analytics, anomaly detection, evidence-backed AI investigation, SQL safety validation, Streamlit dashboard, incident timeline, and performance instrumentation.
 
 ## Technology
 
@@ -55,6 +55,24 @@ Project initialization.
 - `docs/testing.md`
 - `docs/evidence.md`
 
+## How It Works
+
+1. Infrastructure telemetry and operational events are stored in Exasol Personal.
+2. SQL analytics calculate baseline behavior for the selected server.
+3. Anomaly detection compares incident behavior against the baseline.
+4. Correlated operational events are retrieved from Exasol.
+5. A read-only SQL safety gate validates database queries before execution.
+6. The AI investigation agent receives the structured evidence and produces an incident report.
+7. Streamlit presents the evidence, report, timeline, confidence, and measured execution times.
+
+## Example Result
+
+For the included `web-03` incident, OpsIntel detects a critical anomaly across CPU, memory, latency, error rate, and HTTP 5xx signals. The investigation correlates five operational events and identifies connection-pool exhaustion as the strongest evidence-supported hypothesis while distinguishing correlation from confirmed causation.
+
+## Performance
+
+The dashboard records Exasol execution time, AI report-generation time, and total investigation time. This provides measured end-to-end performance rather than estimated latency.
+
 ## Security
 
-Secrets, credentials, private keys and local VM files must never be committed to this repository.
+API keys and credentials must remain in the local `.env` file and must never be committed. The repository contains only `.env.example` as a configuration template.
